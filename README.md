@@ -1,38 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tech Exam
 
-## Getting Started
+- My answers for the Techexam.
 
-First, run the development server:
+**Notes**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- I'm using PNPM as my package manager
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Objectives
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Create a Login Page with Login function
+- Create a Homepage that lists the territories on auth users
+  - If unauthenticated redirect to login page
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### API Routes
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- `/Account/SignIn` - Login Function API
+  Test Account
+  ```
+  U: foo
+  P: bar
+  ```
+- `/Territories/All` - The list of territories
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Plan
 
-## Learn More
+- Create skeleton pages
+  - Login Page
+  - Homepage
+- Create the req and res Type Def
+- Create the Login Functionality
+  - Validate the credentials (Implement this using SSR)
+    - Sanitize user input
+    - Use validator.js for validation
+  - Add an error modal and error handling
+    - Add an error message regarding on failed validation (Status code 401)
+  - Use react-hook-form for the Login form
+- Create Homepage
+  - Handle the user auth
+    - If user is authenticated render the page
+    - If user is not authenticated redirect to login page (Status code 304)
+  - Create a recursive function to transform the flat array into a tree (Depth is unknown)
+    - Observe the pattern of the Parent-Child territories data
+  - Create a recursive drop down component to list down Territories
+- Host the live site in AWS
 
-To learn more about Next.js, take a look at the following resources:
+### Optional
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Implement the CSS and Animation using TailwindCSS and Framer-motion
+- Try to implement react-three-fiber
+- Change favicon
