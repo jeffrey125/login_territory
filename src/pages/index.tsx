@@ -1,9 +1,5 @@
 const Home = () => {
-  return (
-    <main>
-      <h1>TEST PAGE</h1>
-    </main>
-  );
+  return <h1>Territories Page</h1>;
 };
 
 export default Home;
