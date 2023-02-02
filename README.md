@@ -60,3 +60,110 @@
 - Implement the CSS and Animation using TailwindCSS and Framer-motion.
 - Try to implement react-three-fiber.
 - Change favicon.
+
+### Plan for Recursion on Territories Data
+
+The Parent ID is appended always on the children id
+e.g.
+
+- If parent is null then it is the root node
+- 01 is the starting count of the ID
+- If Manila has parent id 1 then append it on the Manila ID 101
+
+NOTES - The depth of data is unknown so we must handle this using the information above
+
+```
+Expected DS (We're going to use Recursion for this)
+
+[
+  {
+    id: 1,
+    name: "Metro Manila",
+    parent: null, // Meaning this is the root parent
+    children: [
+      {
+        id: 101,
+        name: "Manila",
+        parent: 1,
+        children: [
+          {
+            id: 10101,
+            name: "Malate",
+            parent: 101,
+            children: []
+          },
+          {
+            id: 10102,
+            name: "Ermita",
+            parent: 101,
+            children: []
+          },
+          {
+            id: 10103,
+            name: Binondo,
+            parent: 101,
+            children: []
+          },
+        ],
+        {
+          id: 102,
+          name: "Makati",
+          parent: 1,
+          children: [
+            {
+              id: 10201,
+              name: "Poblacion",
+              parent: 102,
+              children: []
+            },
+            {
+              id: 10202,
+              name: "Bel-Air",
+              parent: 102,
+              children: []
+            },
+            {
+              id: 10203,
+              name: "San Lorenzo",
+              parent: 102,
+              children: []
+            },
+            {
+              id: 10203,
+              name: "Urdaneta",
+              parent: 102,
+              children: []
+            },
+          ],
+        },
+        {
+          id: 103,
+          name: "Marikina",
+          parent: 1,
+          children: [
+            {
+              id: 10301,
+              name: "Sto Nino",
+              parent: 103,
+              children: []
+            },
+            {
+              id: 10302,
+              name: "Malanday",
+              parent: 103,
+              children: []
+            },
+            {
+              id: 10303,
+              name: "Concepcion I",
+              parent: 103,
+              children: []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
+
+```
