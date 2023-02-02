@@ -1,6 +1,7 @@
 import { Global, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import Head from 'next/head';
+import { Layout } from '@components/layout';
 
 import type { AppProps } from 'next/app';
 
@@ -65,9 +66,9 @@ const App = ({ Component, pageProps }: AppProps) => {
           fontFamily: 'Roboto, sans-serif',
         }}>
         <NotificationsProvider>
-          <main>
+          <Layout>
             <Component {...pageProps} />
-          </main>
+          </Layout>
         </NotificationsProvider>
       </MantineProvider>
     </>
