@@ -5,6 +5,15 @@ const nextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
+  redirects: async () => {
+    return [
+      {
+        source: '/account',
+        destination: '/account/login',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
