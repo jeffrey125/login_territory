@@ -2,6 +2,10 @@
 
 - My answers for the Techexam.
 
+**Bug**
+
+- [Fast-refresh problem in tailwindcss](https://github.com/vercel/next.js/issues/43396#issuecomment-1405218446) - Discared tailwindcss since it has a problem in next.js v13
+
 **Notes**
 
 - I'm using PNPM as my package manager if you are using other package managers please remove my `pnpm-lock.yaml` also change the pre-commit hook to your desired package manager. Now you can install and run the project again on your desired package manager.
@@ -36,9 +40,15 @@
 ### Plan
 
 - Create skeleton pages.
-  - Login Page
-  - Homepage
-- Create the req and res Type Def.
+  - Login Page ✅
+    - Add skeleton design
+  - Homepage ✅
+    - Add skeleton design
+  - 404 Page ✅
+    - Add skeleton design
+  - 500 Page ✅
+    - Add skeleton design
+- Create the req and res Type Def. ✅
 - Create the Login Functionality.
   - Validate the credentials (Implement this using SSR).
     - Sanitize user input.
@@ -57,9 +67,12 @@
 
 ### Optional
 
-- Implement the CSS and Animation using TailwindCSS and Framer-motion.
+- Add advanced style and animation
+  - MantineUI
+  - Framer-motion
 - Try to implement react-three-fiber.
 - Change favicon.
+- Dockerize this nextjs app
 
 ### Plan for Recursion on Territories Data
 
