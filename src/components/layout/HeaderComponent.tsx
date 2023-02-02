@@ -48,7 +48,7 @@ export const HeaderComponent = () => {
   };
 
   return (
-    <Header height={60}>
+    <Header height={60} sx={{ position: 'fixed', top: 0, borderBottom: 0 }}>
       <Container
         className={classes.header}
         sx={{ paddingLeft: 80, paddingRight: 80 }}>
