@@ -1,12 +1,15 @@
-import { RecoilRoot } from 'recoil';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { Global, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import Head from 'next/head';
-import { Layout } from '@components/layout';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
+import { Layout } from '@components/layout';
 import type { AppProps } from 'next/app';
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const queryClient = new QueryClient();
+
   return (
     <>
       <Head>
@@ -59,7 +62,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           },
         })}
       />
-      <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
         <MantineProvider
           withNormalizeCSS
           theme={{
@@ -73,7 +76,8 @@ const App = ({ Component, pageProps }: AppProps) => {
             </Layout>
           </NotificationsProvider>
         </MantineProvider>
-      </RecoilRoot>
+        <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+      </QueryClientProvider>
     </>
   );
 };
