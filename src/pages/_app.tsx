@@ -1,3 +1,4 @@
+import { RecoilRoot } from 'recoil';
 import { Global, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import Head from 'next/head';
@@ -58,19 +59,21 @@ const App = ({ Component, pageProps }: AppProps) => {
           },
         })}
       />
-      <MantineProvider
-        withNormalizeCSS
-        theme={{
-          colorScheme: 'light',
-          focusRing: 'auto',
-          fontFamily: 'Roboto, sans-serif',
-        }}>
-        <NotificationsProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </NotificationsProvider>
-      </MantineProvider>
+      <RecoilRoot>
+        <MantineProvider
+          withNormalizeCSS
+          theme={{
+            colorScheme: 'light',
+            focusRing: 'auto',
+            fontFamily: 'Roboto, sans-serif',
+          }}>
+          <NotificationsProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </NotificationsProvider>
+        </MantineProvider>
+      </RecoilRoot>
     </>
   );
 };
