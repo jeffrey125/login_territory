@@ -4,6 +4,7 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@emotion/server': ^11.10.0
   '@mantine/core': ^5.10.2
+  '@mantine/form': ^5.10.3
   '@mantine/hooks': ^5.10.2
   '@mantine/next': ^5.10.2
   '@mantine/notifications': ^5.10.2
@@ -39,6 +40,7 @@ dependencies:
   '@emotion/react': 11.10.5_yxdp3dl3eazy3vwpbmv4fq727a
   '@emotion/server': 11.10.0
   '@mantine/core': 5.10.2_bgdfy3qhwgihjpd7hjoiv47mfe
+  '@mantine/form': 5.10.3_react@18.2.0
   '@mantine/hooks': 5.10.2_react@18.2.0
   '@mantine/next': 5.10.2_frkyvidol3cyjondljhrqtyp5u
   '@mantine/notifications': 5.10.2_yzf4d63xstafd7ya36kewhvvjm
@@ -47,6 +49,7 @@ dependencies:
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/validator': 13.7.11
   axios: 1.3.0
   eslint: 8.33.0
   eslint-config-next: 13.1.6_4vsywjlpuriuw3tl5oq6zy5a64
@@ -63,7 +66,6 @@ devDependencies:
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 14.4.3_yxlyej73nftwmh2fiao7paxmlm
   '@types/testing-library__jest-dom': 5.14.5
-  '@types/validator': 13.7.11
   '@typescript-eslint/eslint-plugin': 5.50.0_go4drrxstycfikanvu45pi4vgq
   '@typescript-eslint/parser': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
   husky: 8.0.3
@@ -861,6 +863,16 @@ packages:
       - '@types/react'
     dev: false
 
+  /@mantine/form/5.10.3_react@18.2.0:
+    resolution: {integrity: sha512-BvE0X1twmC9KfxdFH5lGCA42fCcNcTmqq8H5grzjCFSl6LP2S7FR8/zzQYhVxfK0bqQEyitp1aiq2EptNeJgig==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      fast-deep-equal: 3.1.3
+      klona: 2.0.6
+      react: 18.2.0
+    dev: false
+
   /@mantine/hooks/5.10.2_react@18.2.0:
     resolution: {integrity: sha512-H26lZ+P2HasLXt3coXYUiN5hVRNXPYNwF93oP9TfmOOA+EEzbGtGQR/dBv51BF53UJ+rzgJ0W5lLi1CbZPdMnA==}
     peerDependencies:
@@ -1438,7 +1450,7 @@ packages:
 
   /@types/validator/13.7.11:
     resolution: {integrity: sha512-WqTos+CnAKN64YwyBMhgUYhb5VsTNKwUY6AuzG5qu9/pFZJar/RJFMZBXwX7VS+uzYi+lIAr3WkvuWqEI9F2eg==}
-    dev: true
+    dev: false
 
   /@types/yargs-parser/21.0.0:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
@@ -4000,6 +4012,11 @@ packages:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
     dev: true
+
+  /klona/2.0.6:
+    resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
+    engines: {node: '>= 8'}
+    dev: false
 
   /language-subtag-registry/0.3.22:
     resolution: {integrity: sha512-tN0MCzyWnoz/4nHS6uxdlFWoUZT7ABptwKPQ52Ea7URk6vll88bWBVhodtnlfEuCcKWNGoc+uGbw1cwa9IKh/w==}
