@@ -7,6 +7,7 @@ import Head from 'next/head';
 
 import { Layout } from '@components/layout';
 import type { AppProps } from 'next/app';
+import { ModalsProvider } from '@mantine/modals';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const queryClient = new QueryClient();
@@ -72,11 +73,13 @@ const App = ({ Component, pageProps }: AppProps) => {
             fontFamily: 'Roboto, sans-serif',
           }}>
           <NotificationsProvider>
-            <RecoilRoot>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </RecoilRoot>
+            <ModalsProvider>
+              <RecoilRoot>
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </RecoilRoot>
+            </ModalsProvider>
           </NotificationsProvider>
         </MantineProvider>
         <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
