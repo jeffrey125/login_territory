@@ -67,8 +67,11 @@ const Custom500 = () => {
           development team was already notified. Try refreshing the page.
         </Text>
         <Group position='center'>
-          <Button variant='white' size='md' onClick={() => router.reload()}>
-            Refresh the page
+          <Button
+            variant='white'
+            size='md'
+            onClick={() => void router.push('/')}>
+            Go to homepage
           </Button>
         </Group>
       </Container>
