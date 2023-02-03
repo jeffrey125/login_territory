@@ -12,7 +12,7 @@ const Home = () => {
     void Router.push('/account/login');
   }, [isLoggedIn]);
 
-  return (
+  return isLoggedIn ? (
     <Container
       sx={{
         display: 'flex',
@@ -24,9 +24,9 @@ const Home = () => {
       }}>
       <h1>Territories Page</h1>
     </Container>
+  ) : (
+    <></>
   );
 };
 
 export default Home;
-
-// TODO Try to implement this on SSR
