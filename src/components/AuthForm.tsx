@@ -15,8 +15,11 @@ import type { AuthApiData, AuthApiErrorData } from '@src/pages/api/auth';
 import type { AccountBodyData } from '@src/types/account';
 import type { ReturnTypeToJsend } from '@src/utils/toJsend';
 import type { AxiosError } from 'axios';
+import { useIsLoggedIn } from '@src/hooks/useIsLoggedIn';
 
 export const AuthForm = () => {
+  const { setIsLoggedIn } = useIsLoggedIn();
+
   const form = useForm({
     initialValues: {
       username: '',
@@ -60,8 +63,8 @@ export const AuthForm = () => {
         message: `Welcome back ${userData.data.username}!`,
         autoClose: 3000,
       });
-
       form.reset();
+      setIsLoggedIn(true);
     } catch (err) {
       const error = err as AxiosError<ReturnTypeToJsend<AuthApiErrorData>>;
 
@@ -72,6 +75,7 @@ export const AuthForm = () => {
         autoClose: 3000,
         color: 'red',
       });
+      setIsLoggedIn(false);
     }
   };
 
