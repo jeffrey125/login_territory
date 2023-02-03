@@ -1,8 +1,9 @@
+import { RecoilRoot } from 'recoil';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Global, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import Head from 'next/head';
-import { ReactQueryDevtools } from 'react-query/devtools';
 
 import { Layout } from '@components/layout';
 import type { AppProps } from 'next/app';
@@ -71,9 +72,11 @@ const App = ({ Component, pageProps }: AppProps) => {
             fontFamily: 'Roboto, sans-serif',
           }}>
           <NotificationsProvider>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <RecoilRoot>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </RecoilRoot>
           </NotificationsProvider>
         </MantineProvider>
         <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
