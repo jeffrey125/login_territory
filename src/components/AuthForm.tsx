@@ -16,9 +16,11 @@ import type { AccountBodyData } from '@src/types/account';
 import type { ReturnTypeToJsend } from '@src/utils/toJsend';
 import type { AxiosError } from 'axios';
 import { useIsLoggedIn } from '@src/hooks/useIsLoggedIn';
+import { useRouter } from 'next/router';
 
 export const AuthForm = () => {
   const { setIsLoggedIn } = useIsLoggedIn();
+  const router = useRouter();
 
   const form = useForm({
     initialValues: {
@@ -65,6 +67,7 @@ export const AuthForm = () => {
       });
       form.reset();
       setIsLoggedIn(true);
+      void router.push('/');
     } catch (err) {
       const error = err as AxiosError<ReturnTypeToJsend<AuthApiErrorData>>;
 

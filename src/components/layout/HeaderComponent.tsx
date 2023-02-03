@@ -1,4 +1,6 @@
-import { createStyles, Header, Container, Button } from '@mantine/core';
+import { createStyles, Header, Container, Button, Text } from '@mantine/core';
+import { openConfirmModal } from '@mantine/modals';
+import { useIsLoggedIn } from '@src/hooks/useIsLoggedIn';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -34,16 +36,31 @@ const useStyles = createStyles((theme) => ({
 export const HeaderComponent = () => {
   const { classes } = useStyles();
   const router = useRouter();
+  const { isLoggedIn, setIsLoggedIn } = useIsLoggedIn();
 
   const imageClickHandler = () => {
-    // TODO put the isAuthenticathed flag here to have a guard return
+    if (!isLoggedIn) return;
 
     void router.push('/');
   };
 
-  const loginLogoutButton = () => {
-    // TODO put the isAuthenticathed flag here to have a login logout logic
+  const openLogoutModal = () =>
+    openConfirmModal({
+      centered: true,
+      title: 'Do you want to logout?',
+      children: (
+        <Text size='sm'>
+          After logging out you will be redirected again to the login page.
+        </Text>
+      ),
+      labels: { confirm: 'Confirm', cancel: 'Cancel' },
+      onConfirm: () => {
+        setIsLoggedIn(false);
+        void router.push('/account/login');
+      },
+    });
 
+  const loginHandler = () => {
     void router.push('/account/login');
   };
 
@@ -64,12 +81,12 @@ export const HeaderComponent = () => {
 
         <Button
           size='md'
-          color='green'
+          color={isLoggedIn ? 'red' : 'green'}
           role='button'
           component='a'
-          onClick={loginLogoutButton}
+          onClick={isLoggedIn ? openLogoutModal : loginHandler}
           sx={{ width: 160 }}>
-          Login
+          {isLoggedIn ? 'Logout' : 'Login'}
         </Button>
       </Container>
     </Header>
