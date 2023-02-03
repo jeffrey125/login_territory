@@ -1,7 +1,18 @@
-import { sampleTest } from '@src/utils/sampleTest';
+import { transformData } from '@src/utils/transformData';
+import { terrData } from './datasets/territories';
 
-describe('Sample Test Suite for Initialize Project', () => {
-  test('Should Be 2', () => {
-    expect(sampleTest()).toBe(2);
+// NOTES just for jest test
+import { arrayToTree } from 'performant-array-to-tree';
+
+const expectedTree = arrayToTree(terrData, {
+  dataField: null,
+  parentId: 'parent',
+});
+
+describe('transformData util test', () => {
+  test('transformData should have the original expected data from the Exam', () => {
+    const territoryTreeDS = transformData(terrData);
+
+    expect(territoryTreeDS).toStrictEqual(expectedTree);
   });
 });
