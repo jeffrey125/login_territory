@@ -53,6 +53,7 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "lint-staged": "^13.1.0",
+    "performant-array-to-tree": "^1.11.0",
     "prettier": "^2.8.3"
   },
   "lint-staged": {
