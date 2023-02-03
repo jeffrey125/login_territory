@@ -2,17 +2,16 @@
 import { toJsend } from '@src/utils/toJsend';
 import isEmpty from 'validator/lib/isEmpty';
 import axios from 'axios';
+import escape from 'validator/lib/escape';
 import type { ReturnTypeToJsend } from '@src/utils/toJsend';
 import type { AccountBodyData, AccountBodyReq } from '@src/types/account';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { AxiosError } from 'axios';
-
 export type AuthApiErrorData = {
   message: string;
 };
 
 export type AuthApiData = ReturnTypeToJsend<AuthApiErrorData | AccountBodyData>;
-
 export default async function handler(
   { method, body }: NextApiRequest,
   res: NextApiResponse<AuthApiData>,
@@ -56,9 +55,14 @@ export default async function handler(
   }
 
   try {
+    const cleanPayload = {
+      username: escape(username),
+      password: escape(password),
+    };
+
     const { data } = await axios.post<AccountBodyData>(
       `${process.env.BASE_API_ROUTE}/Account/SignIn`,
-      { username, password },
+      cleanPayload,
     );
 
     const successResData = toJsend({
