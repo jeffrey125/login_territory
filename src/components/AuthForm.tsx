@@ -9,11 +9,12 @@ import {
 import { showNotification, updateNotification } from '@mantine/notifications';
 import { useForm } from '@mantine/form';
 import isEmpty from 'validator/lib/isEmpty';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 
 import type { AuthApiData, AuthApiErrorData } from '@src/pages/api/auth';
 import type { AccountBodyData } from '@src/types/account';
 import type { ReturnTypeToJsend } from '@src/utils/toJsend';
+import type { AxiosError } from 'axios';
 
 export const AuthForm = () => {
   const form = useForm({
@@ -59,11 +60,13 @@ export const AuthForm = () => {
         message: `Welcome back ${userData.data.username}!`,
         autoClose: 3000,
       });
+
+      form.reset();
     } catch (err) {
       const error = err as AxiosError<ReturnTypeToJsend<AuthApiErrorData>>;
 
-      showNotification({
-        id: 'login-error',
+      updateNotification({
+        id: 'login',
         title: 'Login Error',
         message: error.response?.data.data.message || 'Something went wrong!',
         autoClose: 3000,
@@ -101,7 +104,15 @@ export const AuthForm = () => {
         <form
           onSubmit={form.onSubmit(
             (userInput) => void loginHandler(userInput),
-            () => alert('error'),
+            () => {
+              showNotification({
+                id: 'login',
+                color: 'red',
+                title: 'Form Error',
+                message: 'Invalid Form Input!',
+                autoClose: 2000,
+              });
+            },
           )}>
           <TextInput
             label='Username'
@@ -113,7 +124,6 @@ export const AuthForm = () => {
           <PasswordInput
             label='Password'
             placeholder='Your Password Here'
-            required
             mt='md'
             autoComplete='current-password'
             {...form.getInputProps('password')}
