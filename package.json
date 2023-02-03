@@ -35,13 +35,15 @@
     "react-dom": "18.2.0",
     "react-query": "^3.39.3",
     "stylis-plugin-rtl": "^2.1.1",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "validator": "^13.9.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/testing-library__jest-dom": "^5.14.5",
+    "@types/validator": "^13.7.11",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "husky": "^8.0.0",
