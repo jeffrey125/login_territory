@@ -1,48 +1,53 @@
 type JsendParams<DataType> = {
   method: 'GET' | 'POST' | 'DELETE' | 'PATCH';
   statusForJsend: 'success' | 'fail' | 'error';
-  data: Array<DataType> | DataType;
+  data: DataType;
   isList?: boolean;
-  errorMessage?: string;
 };
 
-export type ReturnTypeToJsend = ReturnType<typeof toJsend>;
+export type ReturnTypeToJsend<T> = (
+  | {
+      status: 'success' | 'fail' | 'error';
+    }
+  | {
+      status: 'success' | 'fail' | 'error';
+      results: number;
+    }
+) &
+  Pick<JsendParams<T>, 'data'>;
 
 export const toJsend = <DataType>({
   method,
   data,
   statusForJsend,
   isList,
-  errorMessage,
 }: JsendParams<DataType>) => {
   let resData;
-
-  if (statusForJsend === 'success') {
-    resData =
-      isList && Array.isArray(data)
-        ? { status: statusForJsend, results: data.length, data }
-        : { status: statusForJsend, data };
-  }
 
   if (statusForJsend === 'success' && method === 'DELETE') {
     resData = { status: statusForJsend, data: null };
   }
 
-  if (statusForJsend === 'fail' && errorMessage) {
+  if (statusForJsend === 'fail') {
     resData = {
+      data,
       status: statusForJsend,
       isSystemError: false,
-      data: { errorMessage },
     };
   }
 
-  if (statusForJsend === 'error' && errorMessage) {
+  if (statusForJsend === 'error') {
     resData = {
+      data,
       status: statusForJsend,
       isSystemError: true,
-      message: errorMessage,
     };
   }
+
+  resData =
+    isList && Array.isArray(data)
+      ? { status: statusForJsend, results: data.length, data }
+      : { status: statusForJsend, data };
 
   return resData;
 };
