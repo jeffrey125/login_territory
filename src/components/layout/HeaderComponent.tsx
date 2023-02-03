@@ -1,5 +1,6 @@
 import { createStyles, Header, Container, Button, Text } from '@mantine/core';
 import { openConfirmModal } from '@mantine/modals';
+import { showNotification } from '@mantine/notifications';
 import { useIsLoggedIn } from '@src/hooks/useIsLoggedIn';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -57,6 +58,14 @@ export const HeaderComponent = () => {
       onConfirm: () => {
         setIsLoggedIn(false);
         void router.push('/account/login');
+
+        showNotification({
+          id: 'logout',
+          title: 'Logout Successful!',
+          message: 'Thank you for using our application!',
+          autoClose: 2000,
+          color: 'blue',
+        });
       },
     });
 

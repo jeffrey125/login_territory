@@ -63,7 +63,7 @@ export const AuthForm = () => {
         color: 'green',
         title: 'Login Successfully',
         message: `Welcome back ${userData.data.username}!`,
-        autoClose: 3000,
+        autoClose: 2000,
       });
       form.reset();
       setIsLoggedIn(true);
@@ -75,7 +75,7 @@ export const AuthForm = () => {
         id: 'login',
         title: 'Login Error',
         message: error.response?.data.data.message || 'Something went wrong!',
-        autoClose: 3000,
+        autoClose: 2000,
         color: 'red',
       });
       setIsLoggedIn(false);
