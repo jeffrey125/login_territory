@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@mantine/hooks';
 import { createStyles, Header, Container, Button, Text } from '@mantine/core';
 import { openConfirmModal } from '@mantine/modals';
 import { showNotification } from '@mantine/notifications';
@@ -38,6 +39,7 @@ export const HeaderComponent = () => {
   const { classes } = useStyles();
   const router = useRouter();
   const { isLoggedIn, setIsLoggedIn } = useIsLoggedIn();
+  const matches = useMediaQuery('(min-width: 576px)');
 
   const imageClickHandler = () => {
     if (!isLoggedIn) return;
@@ -77,7 +79,11 @@ export const HeaderComponent = () => {
     <Header height={60} sx={{ position: 'fixed', top: 0, borderBottom: 0 }}>
       <Container
         className={classes.header}
-        sx={{ paddingLeft: 80, paddingRight: 80 }}>
+        sx={
+          matches
+            ? { paddingLeft: 80, paddingRight: 80 }
+            : { paddingLeft: 40, paddingRight: 40 }
+        }>
         <Image
           priority
           src='/assets/images/logo.png'
@@ -94,7 +100,7 @@ export const HeaderComponent = () => {
           role='button'
           component='a'
           onClick={isLoggedIn ? openLogoutModal : loginHandler}
-          sx={{ width: 160 }}>
+          sx={{ width: matches ? 160 : 120 }}>
           {isLoggedIn ? 'Logout' : 'Login'}
         </Button>
       </Container>
