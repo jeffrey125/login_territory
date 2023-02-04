@@ -29,7 +29,7 @@ export const TerritoryList = ({
             hidden={hidden}
             icon={
               <ThemeIcon color='blue' size={18} radius='xl'>
-                {isHidden ? (
+                {isHidden && terrData.children.length !== 0 ? (
                   <IconArrowBadgeRight size={16} />
                 ) : (
                   <IconArrowBadgeDown size={16} />
