@@ -9,6 +9,7 @@ import {
 import { showNotification, updateNotification } from '@mantine/notifications';
 import { useForm } from '@mantine/form';
 import isEmpty from 'validator/lib/isEmpty';
+import { useMediaQuery } from '@mantine/hooks';
 import axios from 'axios';
 
 import type { AuthApiData, AuthApiErrorData } from '@src/pages/api/auth';
@@ -19,6 +20,7 @@ import { useIsLoggedIn } from '@src/hooks/useIsLoggedIn';
 import { useRouter } from 'next/router';
 
 export const AuthForm = () => {
+  const matches = useMediaQuery('(min-width: 576px)');
   const { setIsLoggedIn } = useIsLoggedIn();
   const router = useRouter();
 
@@ -107,7 +109,7 @@ export const AuthForm = () => {
         p={30}
         mt={30}
         radius='md'
-        sx={{ width: 420 }}>
+        sx={{ width: matches ? 420 : 300 }}>
         <form
           onSubmit={form.onSubmit(
             (userInput) => void loginHandler(userInput),
