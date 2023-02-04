@@ -53,10 +53,11 @@ const Home = () => {
     <Container
       sx={{
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        height: '100vh',
+        marginTop: 120,
+        marginBottom: 120,
+        height: '100%',
         width: '100%',
       }}>
       <Text component='h1' size={32}>

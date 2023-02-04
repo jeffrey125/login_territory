@@ -23,8 +23,14 @@ export const TerritoryList = ({
     <List withPadding={withPadding}>
       {territoryData.map((terrData) => (
         <React.Fragment key={terrData.id}>
+          {/* Parent */}
           <List.Item
-            sx={{ height: 25, cursor: 'pointer' }}
+            sx={{
+              height: 20,
+              marginBottom: 5,
+              marginTop: 5,
+              cursor: 'pointer',
+            }}
             onClick={() => setIsHidden((prevState) => !prevState)}
             hidden={hidden}
             icon={
@@ -38,6 +44,8 @@ export const TerritoryList = ({
             }>
             <Text>{terrData.name}</Text>
           </List.Item>
+
+          {/* Child */}
           {!hidden && (
             <TerritoryList
               territoryData={
