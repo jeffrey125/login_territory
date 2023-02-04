@@ -11,6 +11,7 @@ specifiers:
   '@mantine/notifications': ^5.10.2
   '@mantine/nprogress': ^5.10.2
   '@next/font': 13.1.6
+  '@tabler/icons-react': ^2.2.0
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.4.0
   '@testing-library/user-event': ^14.4.3
@@ -50,6 +51,7 @@ dependencies:
   '@mantine/notifications': 5.10.2_yzf4d63xstafd7ya36kewhvvjm
   '@mantine/nprogress': 5.10.2_yzf4d63xstafd7ya36kewhvvjm
   '@next/font': 13.1.6
+  '@tabler/icons-react': 2.2.0_react@18.2.0
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
@@ -1293,6 +1295,20 @@ packages:
     resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
     dependencies:
       tslib: 2.5.0
+    dev: false
+
+  /@tabler/icons-react/2.2.0_react@18.2.0:
+    resolution: {integrity: sha512-4dIT/XL2VVTrqTR9mRMXSbM8/Pe9AmaiciItP+So8bpZy5dakwkc1zT5JtDFEbcv5YEi73rlnyuHdAhwRC1NGA==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tabler/icons': 2.2.0
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
+  /@tabler/icons/2.2.0:
+    resolution: {integrity: sha512-s2mm+7JqmLObKdU89Dtiy+USmUpOlACsoXZZPykjAJZC4pK3wMYxLsclJxViWLeLTb6Bc0oga92V7R+9nrj1ZQ==}
     dev: false
 
   /@testing-library/dom/8.20.0:
