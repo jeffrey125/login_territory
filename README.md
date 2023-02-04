@@ -1,6 +1,4 @@
-# Tech Exam
-
-- My answers for the Techexam.
+# Login-Territory
 
 **Bug**
 
@@ -39,39 +37,36 @@
 
 ### Plan
 
-- Create skeleton pages.
+- Create skeleton pages. ✅
   - Login Page ✅
-    - Add skeleton design
+    - Add skeleton design ✅
   - Homepage ✅
-    - Add skeleton design
+    - Add skeleton design ✅
   - 404 Page ✅
-    - Add skeleton design
+    - Add skeleton design ✅
   - 500 Page ✅
-    - Add skeleton design
+    - Add skeleton design ✅
 - Create the req and res Type Def. ✅
-- Create the Login Functionality.
-  - Validate the credentials (Implement this using SSR).
-    - Sanitize user input.
-    - Use validator.js for validation.
-  - Add an error modal and error handling.
-    - Add an error message regarding on failed validation (Status code 401).
-  - Use react-hook-form for the Login form.
-- Create Homepage.
-  - Handle the user auth.
-    - If user is authenticated render the page.
-    - If user is not authenticated redirect to login page (Status code 304).
-  - Create a recursive function to transform the flat array into a tree (Depth is unknown).
-    - Observe the pattern of the Parent-Child territories data.
-  - Create a recursive drop down component to list down Territories.
+- Create the Login Functionality. ✅
+  - Sanitize user input. ✅
+  - Use validator.js for validation. ✅
+  - Add an error modal and error handling. ✅
+    - Add an error message regarding on failed validation (Status code 401). ✅
+  - Used mantine form hooks for form. ✅
+- Create Homepage. ✅
+  - Handle the user auth. ✅
+    - If user is authenticated render the page. ✅
+    - If user is not authenticated redirect to login page. ✅
+  - Create a recursive function to transform the flat array into a tree (Depth is unknown). ✅
+    - Observe the pattern of the Parent-Child territories data. ✅
+  - Create a recursive drop down component to list down Territories. ✅
 - Host the live site in AWS.
 
 ### Optional
 
-- Add advanced style and animation
-  - MantineUI
-  - Framer-motion
-- Try to implement react-three-fiber.
-- Change favicon.
+- Add Basic style and Animation ✅
+  - MantineUI ✅
+- Change favicon. ✅
 - Dockerize this nextjs app
 
 ### Plan for Recursion on Territories Data
