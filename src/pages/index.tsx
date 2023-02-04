@@ -2,13 +2,14 @@
 import { useEffect } from 'react';
 import { useIsLoggedIn } from '@src/hooks/useIsLoggedIn';
 import Router from 'next/router';
-import { Container, LoadingOverlay } from '@mantine/core';
+import { Container, Text, LoadingOverlay } from '@mantine/core';
 import { transformData } from '@src/utils/transformData';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { showNotification } from '@mantine/notifications';
 import type { TerritoriesData } from '@src/types/territories';
 import type { AxiosError } from 'axios';
+import { TerritoryList } from '@src/components/TerritoryList';
 
 const Home = () => {
   const { isLoggedIn } = useIsLoggedIn();
@@ -48,7 +49,7 @@ const Home = () => {
     void Router.push('/account/login');
   }, [isLoggedIn]);
 
-  return isLoggedIn && !isLoading ? (
+  return isLoggedIn && !isLoading && data ? (
     <Container
       sx={{
         display: 'flex',
@@ -58,7 +59,10 @@ const Home = () => {
         height: '100vh',
         width: '100%',
       }}>
-      <h1>Territories</h1>
+      <Text component='h1' size={32}>
+        Territories
+      </Text>
+      <TerritoryList territoryData={data} />
     </Container>
   ) : (
     <LoadingOverlay
